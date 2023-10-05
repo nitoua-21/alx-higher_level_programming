@@ -4,12 +4,12 @@ if __name__ == '__main__':
     from calculator_1 import add, sub, mul, div
 
     if len(sys.argv) != 4:
-        sys.stderr.write('Usage: ./100-my_calculator.py <a> <operator> <b>\n')
+        print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         sys.exit(1)
     op = sys.argv[2]
     if op not in '+-*/':
-        error = 'Unknown operator. Available operators: +, -, * and /\n'
-        sys.stderr.write(error)
+        error = 'Unknown operator. Available operators: +, -, * and /'
+        print(error)
         sys.exit(1)
     a = int(sys.argv[1])
     b = int(sys.argv[3])
