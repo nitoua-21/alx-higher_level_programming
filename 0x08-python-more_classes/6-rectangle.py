@@ -34,7 +34,7 @@ class Rectangle():
     def __del__(self):
         """ Deletes instance of class """
         print("Bye rectangle...")
-        type(self).number_of_instance -= 1
+        type(self).number_of_instances -= 1
 
     @property
     def width(self):
