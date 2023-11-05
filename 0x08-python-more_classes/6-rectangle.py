@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 5-rectangle
+Module 6-rectangle
 Contains class Rectangle
 With private attributes with and height
 """
@@ -30,6 +30,11 @@ class Rectangle():
         self.width = width
         self.height = height
         type(self).number_of_instances += 1
+
+    def __del__(self):
+        """ Deletes instance of class """
+        print("Bye rectangle...")
+        type(self).number_of_instance -= 1
 
     @property
     def width(self):
@@ -79,8 +84,3 @@ class Rectangle():
     def __repr__(self):
         """ String representation to recreate new instance """
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
-
-    def __del__(self):
-        """ Deletes instance of class """
-        type(self).number_of_instance -= 1
-        print("Bye rectangle...")
