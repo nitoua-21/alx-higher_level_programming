@@ -67,4 +67,5 @@ def main():
         print_metrics(total_size, status_codes)
 
 
-main()
+if __name__ == "__main__":
+    main()
