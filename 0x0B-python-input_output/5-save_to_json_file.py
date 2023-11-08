@@ -1,18 +1,18 @@
-!/usr/bin/python3
+#!/usr/bin/python3
 """
-Module 5-to_json_string
+Module 5-save_to_json_file
 
-Contains function that returns JSON representation of obj (string)
+Contains function that writes Python obj to file using JSON represenation
 """
 
 
-def to_json_string(my_obj):
-    """Returns JSON representation of obj (string)
+def save_to_json_file(my_obj, filename):
+    """Writes Python obj to file using JSON represenation
     Args:
         my_obj: python object
-    Return:
-        json string representation
+        filename: file
     """
     import json
 
-    return json.dumps(my_obj)
+    with open(filename, mode="w", encoding="utf-8") as f:
+        json.dump(my_obj, f)
