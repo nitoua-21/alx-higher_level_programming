@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 """
-Module 1-number_of_lines
+Module 1-write_file
 
-Contains function that returns number of lines in text file
+Contains function that writes to text file and returns num chars written
 """
 
 
-def number_of_lines(filename=""):
-    """Return number of lines in text file"""
-    with open(filename, mode="r", encoding="utf-8") as f:
-        lines = 0
-        for line in f:
-            lines += 1
-    return lines
+def write_file(filename="", text=""):
+    """writes to text file and returns num chars written"""
+    with open(filename, mode="w", encoding="utf-8") as f:
+        return(f.write(text))
