@@ -1,5 +1,6 @@
 """
 Module 0-add_integer
+Contains function add_integer
 """
 
 
