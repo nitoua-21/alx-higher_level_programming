@@ -1,0 +1,33 @@
+# Run test with cmd: python3 -m doctest -v ./tests/3-say_my_name.txt
+
+First import the function:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Valid names:
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+Empty last name:
+    >>> say_my_name("Alice")
+    My name is Alice
+
+Type errors:
+    >>> say_my_name(10, "Jones")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("David", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    >>> say_my_name("Itoua", "Normich", "Hi")
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
