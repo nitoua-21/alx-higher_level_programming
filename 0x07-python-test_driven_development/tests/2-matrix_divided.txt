@@ -1,0 +1,60 @@
+#Run test with: python3 -m doctest -v ./tests/2-matrix_divided.txt
+
+First, import the module
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+VALID MATRIX AND DIVISOR:
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+>>> matrix_divided([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], 2)
+[[0.5, 1.0], [1.5, 2.0], [2.5, 3.0]]
+
+>>> matrix_divided([[1, 2], [3, 4], [5, 6]], 1.5)
+[[0.67, 1.33], [2.0, 2.67], [3.33, 4.0]]
+
+Empty matrix:
+>>> matrix_divided([], 3)
+[]
+
+Single element matrix:
+>>> matrix_divided([[1]], 2)
+[[0.5]]
+
+Division by 1:
+>>> matrix_divided([[2, 4, 6]], 1)
+[[2.0, 4.0, 6.0]]
+
+TYPE ERRORS
+
+division by zero
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+invalid matrix types
+>>> matrix_divided([[1, 2], [3, 'four']], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Ensuring all rows of the matrix have the same size
+>>> matrix_divided([[1, 2], [3], [4, 5]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+Ensuring the matrix is a list of lists of integers or floats
+>>> matrix_divided("not_a_matrix", 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Ensuring the divisor is a number
+>>> matrix_divided([[1, 2], [3, 4]], "not_a_number")
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
