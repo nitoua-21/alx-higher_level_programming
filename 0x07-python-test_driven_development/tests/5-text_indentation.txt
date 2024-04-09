@@ -1,0 +1,36 @@
+# run test with python3 -m doctest -v ./tests/5-text_indentation.txt
+
+First import the function
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+Valid cases:
+     >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+     ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+     ... Non autem hoc: igitur ne illud quidem""")
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+     <BLANKLINE>
+     Quonam modo?
+     <BLANKLINE>
+     Utrum igitur tibi litteram videor an totas paginas commovere?
+     <BLANKLINE>
+     Non autem hoc:
+     <BLANKLINE>
+     igitur ne illud quidem
+
+     >>> text_indentation("     NORMICH.    ITOUA?   ")
+     NORMICH.
+     <BLANKLINE>
+     ITOUA?
+     <BLANKLINE>
+
+     >>> text_indentation("     NORMICH       ")
+     NORMICH
+
+     >>> text_indentation(" ")
+
+Type Errors:
+     >>> text_indentation(12)
+     Traceback (most recent call last):
+     ...
+     TypeError: text must be a string
