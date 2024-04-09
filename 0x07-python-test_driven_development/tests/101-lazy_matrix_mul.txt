@@ -1,0 +1,69 @@
+# run test with python3 -m doctest -v ./tests/101-lazy_matrix_mul.txt
+
+First import method to test
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+SUCCESS CASES:
+
+Test signed and unsigned ints and floats in same size lists in list matrix:
+     >>> m_a = [[1, 2], [3, 4]]
+     >>> m_b = [[2, 0], [1, 2]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     [[ 4  4]
+      [10  8]]
+
+     >>> m_a = [[-2.0, -3.0]]
+     >>> m_b = [[-2.0], [-4.0]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     [[16.]]
+
+FAIL CASES:
+
+Test empty matrix:
+     >>> m_a = []
+     >>> m_b = [[2, 0], [1, 2]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+
+     >>> m_a = [[2, 0], [1, 2]]
+     >>> m_b = []
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+
+     >>> m_a = [[2, 0], [1, 2]]
+     >>> m_b = [[]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+
+Test different sized lists in matrix:
+     >>> m_a = [[1, 2], [1, 2]]
+     >>> m_b = [[1, 2], [1, 2, 3, 4]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     ValueError: setting an array element with a sequence.
+
+     >>> m_a = [[1, 2], [1, 2, 3, 4]]
+     >>> m_b = [[1, 2], [1, 2]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     Traceback (most recent call last):
+     ...
+     ValueError: setting an array element with a sequence.
+
+Test matrix with other data types:
+     >>> m_a = [["hey"], ["you"]]
+     >>> print(lazy_matrix_mul(m_a, m_a))
+     Traceback (most recent call last):
+     ...
+     ValueError: shapes (2,1) and (2,1) not aligned: 1 (dim 1) != 2 (dim 0)
+
+     >>> m_a = (1, 2)
+     >>> m_b = [[1, 2], [1, 2]]
+     >>> print(lazy_matrix_mul(m_a, m_b))
+     [3 6]
