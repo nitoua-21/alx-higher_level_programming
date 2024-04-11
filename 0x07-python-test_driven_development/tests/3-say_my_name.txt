@@ -9,7 +9,7 @@ Valid names:
 
 Empty last name:
     >>> say_my_name("Alice")
-    My name is Alice
+    My name is Alice 
 
 Type errors:
     >>> say_my_name(10, "Jones")
