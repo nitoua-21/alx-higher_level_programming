@@ -67,3 +67,13 @@ Test matrix with other data types:
      >>> m_b = [[1, 2], [1, 2]]
      >>> print(lazy_matrix_mul(m_a, m_b))
      [3 6]
+
+Test for missing argumrnts
+     >>> print(lazy_matrix_mul())
+     Traceback (most recent call last):
+     ...
+     TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+     >>> print(lazy_matrix_mul([[1, 2], [1, 2]]))
+     ...
+     TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'

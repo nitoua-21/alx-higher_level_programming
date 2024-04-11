@@ -16,14 +16,14 @@ def matrix_mul(m_a, m_b):
 
     if len(m_a) == 0 or len(m_b) == 0 or m_a == [[]] or m_b == [[]]:
         raise ValueError("{} can't be empty".format
-                         ("m_a" if len(m_a) == 0 else "m_b"))
+                         ("m_a" if (len(m_a) == 0 or m_a == [[]]) else "m_b"))
 
     for eachrow in m_a:
         for n in eachrow:
             if not isinstance(n, (int, float)):
                 raise TypeError("m_a should contain only integers or floats")
         if len(eachrow) != len(m_a[0]):
-            raise TypeError("each row of m_a must should be of the same size")
+            raise TypeError("each row of m_a must be of the same size")
         if len(eachrow) != len(m_b):
             raise ValueError("m_a and m_b can't be multiplied")
 
@@ -32,7 +32,7 @@ def matrix_mul(m_a, m_b):
             if not isinstance(n, (int, float)):
                 raise TypeError("m_b should contain only integers or floats")
         if len(eachrow) != len(m_b[0]):
-            raise TypeError("each row of m_b must should be of the same size")
+            raise TypeError("each row of m_b must be of the same size")
 
     tmp = []
     new_matrix = []
