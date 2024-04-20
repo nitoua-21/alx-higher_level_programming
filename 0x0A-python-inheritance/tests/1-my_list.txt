@@ -30,7 +30,7 @@ Case 3: Empty List
 Case 4: Check __str__
     >>> my_list = MyList([1, 2, 3])
     >>> print(str(my_list))
-    '[1, 2, 3]'
+    [1, 2, 3]
 
 Case 5: Check append
     >>> my_list = MyList()
