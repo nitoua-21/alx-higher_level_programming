@@ -22,7 +22,26 @@ Case 2: List not sorted, repeated values
     >>> my_list.print_sorted()
     [1, 2, 3, 4, 4, 10]
 
-Case 2: Empty List
+Case 3: Empty List
     >>> my_list = MyList()
     >>> my_list.print_sorted()
     []
+
+Case 4: Check __str__
+    >>> my_list = MyList([1, 2, 3])
+    >>> printt(str(my_list))
+    '[1, 2, 3]'
+
+Case 5: Check append
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> print(my_list)
+    [1, 2]
+
+Case 6: check print_sorted() returns a new list
+    >>> my_list = MyList([10, 2, 3])
+    >>> my_list.print_sorted()
+    [2, 3, 10]
+    >>> print(my_list)
+    [10, 2, 3]
