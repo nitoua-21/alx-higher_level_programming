@@ -1,0 +1,30 @@
+# Run test with python3 -m doctest -v tests/7-base_geometry.txt
+
+Module import:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+    >>> bg = BaseGeometry()
+
+Check for area():
+    >>> print(bg.area())
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Checks for integer_validator():
+    >>> bg.integer_validator("my_int", 12)
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+    
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
+
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: distance must be greater than 0
