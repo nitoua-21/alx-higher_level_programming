@@ -1,0 +1,28 @@
+# run test with python3 -m doctest tests/1-my_list.txt
+
+Import the module to be tested
+    >>> MyList = __import__('1-my_list').MyList
+
+Case 0: List already sorted
+    >>> my_list = MyList([1, 2, 3])
+    >>> my_list.print_sorted()
+    [1, 2, 3]
+
+    >>> my_list = MyList([-2, 0, 3])
+    >>> my_list.print_sorted()
+    [-2, 0, 3]
+
+Case 1: List not sorted
+    >>> my_list = MyList([10, 2, 3])
+    >>> my_list.print_sorted()
+    [2, 3, 10]
+
+Case 2: List not sorted, repeated values
+    >>> my_list = MyList([10, 2, 3, 4, 1, 4])
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 4, 10]
+
+Case 2: Empty List
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
