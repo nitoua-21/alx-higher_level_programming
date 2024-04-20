@@ -14,6 +14,8 @@ Check for area():
 Checks for integer_validator():
     >>> bg.integer_validator("my_int", 12)
 
+    >>> bg.integer_validator("age", True)
+
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     ...
@@ -48,8 +50,6 @@ Checks for integer_validator():
     Traceback (most recent call last):
     ...
     TypeError: name must be an integer
-
-    >>> bg.integer_validator("name", True)
 
     >>> bg.integer_validator("name", {3, 4})
     Traceback (most recent call last):
