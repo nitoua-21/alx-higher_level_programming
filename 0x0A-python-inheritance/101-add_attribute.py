@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Module to add a new attribute to an object"""
 
 
