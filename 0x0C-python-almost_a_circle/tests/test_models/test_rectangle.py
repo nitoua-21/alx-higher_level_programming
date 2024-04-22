@@ -9,6 +9,10 @@ from models.rectangle import Rectangle, Base
 class TestRectangle(unittest.TestCase):
     """Test cases for Rectangle class."""
 
+    def setUp(self):
+        """Set up test fixtures."""
+        Base._Base__nb_objects = 0
+
     def test_rectangle_instance(self):
         """Test Rectangle instance."""
         r = Rectangle(10, 7, 2, 8)
@@ -22,7 +26,7 @@ class TestRectangle(unittest.TestCase):
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r1.id, 1)
         self.assertEqual(r2.id, 2)
-        self.assertEqual(r2.id, 12)
+        self.assertEqual(r3.id, 12)
 
     def test_rectangle_width(self):
         """Test Rectangle width."""
@@ -159,7 +163,7 @@ class TestRectangle(unittest.TestCase):
     def test_y_negative(self):
         """Test y is negative."""
         with self.assertRaises(ValueError) as context:
-            r = Rectangle(5, 4, -2)
+            r = Rectangle(5, 4, 5, -2)
         self.assertEqual(str(context.exception), "y must be >= 0")
 
     def test_rectangle_area(self):
