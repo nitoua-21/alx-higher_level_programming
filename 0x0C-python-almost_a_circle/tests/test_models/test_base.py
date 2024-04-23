@@ -126,6 +126,29 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(
             id(list_squares_input[0]), id(list_squares_output[0]))
 
+    def test_save_to_file_with_none(self):
+        """check if Square.save_to_file(None) saves an empty list"""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            content = file.read()
+        self.assertEqual(content, "[]")
+
+    def test_save_to_file_with_empty_list(self):
+        """Check if Square.save_to_file([]) saves an empty list"""
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            content = file.read()
+        self.assertEqual(content, "[]")
+
+    def test_save_to_file_with_single_square(self):
+        """ Check if Square.save_to_file([Square(1)]) saves a single Square instance"""
+        s = Square(1)
+        Square.save_to_file([s])
+        with open("Square.json", "r") as file:
+            content = file.read()
+        expected = '[{"id": 1, "size": 1, "x": 0, "y": 0}]'
+        self.assertEqual(content, expected)
+
 
 if __name__ == '__main__':
     unittest.main()
