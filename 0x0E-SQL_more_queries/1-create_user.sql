@@ -4,7 +4,7 @@
 -- if user_0d_1 already exists, script should not fail
 
 CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost'
-IDENTITY BY 'user_0d_1_pwd';
+IDENTIFIED BY 'user_0d_1_pwd';
 
 GRANT ALL PRIVILEGES
 ON *.*
