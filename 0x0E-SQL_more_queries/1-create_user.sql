@@ -3,7 +3,7 @@
 -- password should be set to user_0d_1_pwd
 -- if user_0d_1 already exists, script should not fail
 
-CREATE  IF NOT EXISTS USER 'user_0d_1'@'localhost'
+CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost'
 IDENTITY BY 'user_0d_1_pwd';
 
 GRANT ALL PRIVILEGES
