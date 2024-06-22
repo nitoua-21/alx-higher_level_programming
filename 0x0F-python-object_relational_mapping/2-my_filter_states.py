@@ -10,9 +10,12 @@ if __name__ == '__main__':
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3], charset="utf8")
     cur = conn.cursor()
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cur.execute(query, (sys.argv[4],))
+    query = """SELECT * FROM states
+               WHERE name = '{:s}'
+               ORDER BY id ASC""".format(sys.argv[4])
+    cur.execute(query)
     for row in cur.fetchall():
-        print(row)
+        if row[1] == sys.argv[4]:
+            print(row)
     cur.close()
     conn.close()
