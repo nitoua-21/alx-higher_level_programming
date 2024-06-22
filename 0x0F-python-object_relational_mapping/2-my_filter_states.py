@@ -14,6 +14,7 @@ if __name__ == '__main__':
         f"SELECT * FROM states WHERE name = '{sys.argv[4]:s}' ORDER BY id ASC")
     query_rows = cur.fetchall()
     for row in query_rows:
-        print(row)
+        if row[1] == sys.argv[4]:
+            print(row)
     cur.close()
     conn.close()
