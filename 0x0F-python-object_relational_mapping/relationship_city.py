@@ -1,16 +1,21 @@
 #!/usr/bin/python3
-"""Module that contains the class definition of a City and an instance Base"""
-
+"""
+Defines class City
+"""
 
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
-from model_state import Base
+from sqlalchemy.ext.declarative import declarative_base
+from relationship_state import Base, State
+
+# Base = declarative_base()
 
 
 class City(Base):
-    """City class that links to the MySQL table states"""
-    __tablename__ = 'cities'
-
-    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    """
+    Class City; instance of Base
+    Linked to MySQL table "city"
+    """
+    __tablename__ = "cities"
+    id = Column(Integer, nullable=False, primary_key=True)  # autoincrements
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state_id = Column(Integer, ForeignKey(State.id), nullable=False)
