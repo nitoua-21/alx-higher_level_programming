@@ -10,9 +10,9 @@ import sys
 if __name__ == '__main__':
     username = sys.argv[1]
     access_token = sys.argv[2]
-    url = 'https://api.github.com/user'
+    url = f'https://api.github.com/users/{username}'
     headers = {
-        'Authorization': f'Basic {username}:{access_token}'
+        'Authorization': f'Bearer {access_token}'
     }
 
     response = requests.get(url, headers=headers)

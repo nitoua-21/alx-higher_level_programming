@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""Sript that takes your GitHub credentials (username and password)
-and uses the GitHub API to display your id"""
+"""
+List 10 commits (from the most recent to oldest)
+of the repository “rails” by the user “rails”
+Print all commits by: `<sha>: <author name>` (one by line)
+"""
 
 
 import requests
