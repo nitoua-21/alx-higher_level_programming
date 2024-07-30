@@ -9,7 +9,7 @@ const movieId = process.argv[2];
 const movieUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
 // Function to get character name from URL
-function getCharacterName(characterUrl) {
+function getCharacterName (characterUrl) {
   return new Promise((resolve, reject) => {
     request(characterUrl, (error, response, body) => {
       if (error) reject(error);
@@ -29,7 +29,7 @@ request(movieUrl, (error, response, body) => {
     try {
       const movie = JSON.parse(body);
       const characterPromises = movie.characters.map(getCharacterName);
-      
+
       Promise.all(characterPromises)
         .then(names => names.forEach(name => console.log(name)))
         .catch(err => console.error('Error fetching characters:', err));

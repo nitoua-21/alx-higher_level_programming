@@ -9,7 +9,7 @@ const movieId = process.argv[2];
 const movieUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
 // Function to get character name from URL
-function getCharacterName(characterUrl) {
+function getCharacterName (characterUrl) {
   return new Promise((resolve, reject) => {
     request(characterUrl, (error, response, body) => {
       if (error) reject(error);
