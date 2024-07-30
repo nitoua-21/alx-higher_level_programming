@@ -1,25 +1,24 @@
 #!/usr/bin/node
 
+let url = process.argv[2];
 const request = require('request');
 
-// Get the API URL from command line arguments
-const apiUrl = process.argv[2];
-
-// Make a GET request to the API
-request.get(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error('Error:', error);
-  } else if (response.statusCode !== 200) {
-    console.error('Invalid status code:', response.statusCode);
-  } else {
-    try {
-      const films = JSON.parse(body).results;
-      const wedgeFilms = films.filter(film =>
-        film.characters.includes('Wedge Antilles')
-      );
-      console.log(wedgeFilms.length);
-    } catch (parseError) {
-      console.error('Error parsing JSON:', parseError);
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    let films = JSON.parse(body).results;
+    let count = 0;
+    for (let i in films) {
+      let chars = films[i].characters;
+      for (let c in chars) {
+	if (chars[c].includes('18')) {
+	  count++;
+	}
+      }
     }
+    console.log(count);
+  } else {
+    console.log('Erorr Code:' + response.statusCode);
   }
 });
